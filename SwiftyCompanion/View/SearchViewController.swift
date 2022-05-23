@@ -7,30 +7,14 @@
 
 import UIKit
 import AuthenticationServices
-class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        2
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "yoo"
-    }
-    
+class SearchViewController: UIViewController  {
+
     let searchModel = SearchViewModel()
     
     private let searchView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
-        //        view.layer.borderWidth = 1
-        //        view.layer.borderColor = UIColor.black.cgColor
-        //        view.layer.cornerRadius = 20
+//        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
-        
-        
         return view
     }()
     
@@ -61,23 +45,26 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        searchView.addSubview(searchButton)
-        searchView.addSubview(searchField)
-        view.backgroundColor = .white
-        view.addSubview(searchView)
-        self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.view.backgroundColor = UIColor.white
+        view.backgroundColor = .white
+        view.addSubview(searchView)
+        searchView.addSubview(searchButton)
+        searchView.addSubview(searchField)
         setupAutoLayout()
     }
     
-    
-    
+    func setupAutoLayout() {
+        searchView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+        searchView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+        searchView.heightAnchor.constraint(equalToConstant: view.frame.height / 3).isActive = true
+        searchView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        searchButton.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
+        searchButton.centerYAnchor.constraint(equalTo: searchView.centerYAnchor, constant: -60).isActive = true
+    }
     
     @objc func searchActionButton() {
-        //        self.searchModel.getUser(user: "edebi", completion: { user in
-        //            print(user?.cursus_users)
-        //        })
         guard searchField.text != nil else {
             return
         }
@@ -99,18 +86,6 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             }
         }
     }
-    
-    func setupAutoLayout() {
-        searchView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
-        searchView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
-        searchView.heightAnchor.constraint(equalToConstant: view.frame.height / 3).isActive = true
-        searchView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        
-        //        searchField.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
-        //        searchField.centerYAnchor.constraint(equalTo: searchView.centerYAnchor, constant: -100).isActive = true
-        searchButton.centerXAnchor.constraint(equalTo: searchView.centerXAnchor).isActive = true
-        searchButton.centerYAnchor.constraint(equalTo: searchView.centerYAnchor, constant: -60).isActive = true
-    }
 }
 
 
@@ -131,7 +106,6 @@ extension UITextField {
         animation.duration = 0.4
         if revert { animation.autoreverses = true } else { animation.autoreverses = false }
         self.layer.add(animation, forKey: "")
-        
         let shake: CABasicAnimation = CABasicAnimation(keyPath: "position")
         shake.duration = 0.07
         shake.repeatCount = shakes

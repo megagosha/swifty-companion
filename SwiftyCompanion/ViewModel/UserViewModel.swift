@@ -10,18 +10,16 @@ import UIKit
 
 
 class UserViewModel {
-    public var user: User
-    public var data: [Int:[ProjectInfo]] = [:]
-    public var cursus_ix: Int
-    public var key_cursus: [String: Int] = [:]
-    public var img: UIImageView?
     
-    init(user: User){
-        self.user = user
-        self.cursus_ix = 0
-        self.prepareData()
-        self.findLatestCursus()
-    }
+    public var user: User
+    
+    public var data: [Int:[ProjectInfo]] = [:]
+    
+    public var cursus_ix: Int
+    
+    public var key_cursus: [String: Int] = [:]
+    
+    public var img: UIImageView?
     
     public func loadImg(finished: () -> ()) {
         let img =  UIImageView()
@@ -68,12 +66,37 @@ class UserViewModel {
         }
         return
     }
+    
+    init(user: User){
+        self.user = user
+        self.cursus_ix = 0
+        self.prepareData()
+        self.findLatestCursus()
+    }
 }
-
 
 func convertStringToDate(date: String)->Date? {
     let dateFormatter = DateFormatter()
     dateFormatter.locale = Locale(identifier: "en_US") // set locale to reliable US_POSIX
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     return dateFormatter.date(from: date)
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+                print("failed to create UIIMage")
+            }
+            else
+            {
+                print("img download failed")
+            }
+        }
+    }
 }

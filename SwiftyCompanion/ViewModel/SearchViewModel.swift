@@ -15,7 +15,6 @@ class SearchViewModel {
     var user: User?
     var token: String?
     
-    
     init() {
         let token = defaults.string(forKey:"token")
         let expires_at = defaults.integer(forKey: "expires_at")
@@ -42,25 +41,7 @@ class SearchViewModel {
         })
     }
     
-    //
-    //        let scheme = "swifty.megagosha"
-    //        print(authURL)
-    //        // Initialize the session.
-    //        let session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme,
-    //                                                 completionHandler: { callbackURL, error in
-    //            guard error == nil, let callbackURL = callbackURL else {
-    //                print("error occured")
-    //                //@todo handle error
-    //                return }
-    //            let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
-    //            let token = queryItems?.filter({ $0.name == "code" }).first?.value
-    //            print(callbackURL)
-    //            print(error)
-    //        })
-    //        session.presentationContextProvider = self
-    //        session.start()
     func getCredentials(completion:@escaping (Credentials?) -> ()) {
-        // Use the URL and callback scheme specified by the authorization provider.
         let uid = "8dd4286cd4b791302978ec923d8fb4a1b5c236bf617a32310498042221581752"
         let secret = "4785a92792ce3254b85a9c0cc4026648c141742229b4efa350e9a4fee916d21e"
         guard let authURL = URL(string: "https://api.intra.42.fr/oauth/token?grant_type=client_credentials&client_id=" + uid + "&client_secret=" + secret) else {
@@ -101,7 +82,6 @@ class SearchViewModel {
             }
         }.resume()
     }
-    
     
     func getUser(userInput: String, completion: @escaping (User?) -> ()) {
        var user = userInput.trimingTrailingSpaces()
@@ -158,7 +138,6 @@ class SearchViewModel {
     }
     
     
-    
     func handleError(error: NSError) {
         if (error.code == 401) {
             print("show alert on 401")
@@ -166,7 +145,6 @@ class SearchViewModel {
         print("retry")
     }
 }
-
 
 extension Date {
     static func currentTimestamp() -> Int {

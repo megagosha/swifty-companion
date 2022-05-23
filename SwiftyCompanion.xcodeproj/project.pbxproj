@@ -18,8 +18,16 @@
 		541BF21728353137004C2162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF21628353137004C2162 /* User.swift */; };
 		541BF21D28368256004C2162 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF21C28368256004C2162 /* Credentials.swift */; };
 		541BF2212837075D004C2162 /* UserProjectsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF2202837075D004C2162 /* UserProjectsTable.swift */; };
-		541BF22328381CB8004C2162 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF22228381CB8004C2162 /* UserInfoView.swift */; };
 		541BF225283B9ADA004C2162 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF224283B9ADA004C2162 /* UserViewModel.swift */; };
+		541BF227283BDAF9004C2162 /* TopCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF226283BDAF9004C2162 /* TopCellView.swift */; };
+		541BF229283BE279004C2162 /* ProjectCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF228283BE279004C2162 /* ProjectCellView.swift */; };
+		541BF22B283BE2E6004C2162 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF22A283BE2E6004C2162 /* CustomTextField.swift */; };
+		541BF22D283BE30D004C2162 /* ToolbarPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF22C283BE30D004C2162 /* ToolbarPickerView.swift */; };
+		541BF22F283BE67F004C2162 /* Cursus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF22E283BE67F004C2162 /* Cursus.swift */; };
+		541BF231283BE68F004C2162 /* CursusBasic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF230283BE68F004C2162 /* CursusBasic.swift */; };
+		541BF233283BE6AC004C2162 /* ProjectInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF232283BE6AC004C2162 /* ProjectInfo.swift */; };
+		541BF235283BE6C2004C2162 /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF234283BE6C2004C2162 /* Skill.swift */; };
+		541BF237283BE6D3004C2162 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF236283BE6D3004C2162 /* Project.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +44,16 @@
 		541BF21628353137004C2162 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		541BF21C28368256004C2162 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		541BF2202837075D004C2162 /* UserProjectsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProjectsTable.swift; sourceTree = "<group>"; };
-		541BF22228381CB8004C2162 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		541BF224283B9ADA004C2162 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		541BF226283BDAF9004C2162 /* TopCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCellView.swift; sourceTree = "<group>"; };
+		541BF228283BE279004C2162 /* ProjectCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCellView.swift; sourceTree = "<group>"; };
+		541BF22A283BE2E6004C2162 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		541BF22C283BE30D004C2162 /* ToolbarPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarPickerView.swift; sourceTree = "<group>"; };
+		541BF22E283BE67F004C2162 /* Cursus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cursus.swift; sourceTree = "<group>"; };
+		541BF230283BE68F004C2162 /* CursusBasic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursusBasic.swift; sourceTree = "<group>"; };
+		541BF232283BE6AC004C2162 /* ProjectInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectInfo.swift; sourceTree = "<group>"; };
+		541BF234283BE6C2004C2162 /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
+		541BF236283BE6D3004C2162 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +105,10 @@
 				541BF1FF28352F6C004C2162 /* SearchViewController.swift */,
 				541BF2122835311D004C2162 /* UserViewController.swift */,
 				541BF2202837075D004C2162 /* UserProjectsTable.swift */,
-				541BF22228381CB8004C2162 /* UserInfoView.swift */,
+				541BF228283BE279004C2162 /* ProjectCellView.swift */,
+				541BF226283BDAF9004C2162 /* TopCellView.swift */,
+				541BF22A283BE2E6004C2162 /* CustomTextField.swift */,
+				541BF22C283BE30D004C2162 /* ToolbarPickerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -107,6 +126,11 @@
 			isa = PBXGroup;
 			children = (
 				541BF21628353137004C2162 /* User.swift */,
+				541BF236283BE6D3004C2162 /* Project.swift */,
+				541BF232283BE6AC004C2162 /* ProjectInfo.swift */,
+				541BF234283BE6C2004C2162 /* Skill.swift */,
+				541BF22E283BE67F004C2162 /* Cursus.swift */,
+				541BF230283BE68F004C2162 /* CursusBasic.swift */,
 				541BF21C28368256004C2162 /* Credentials.swift */,
 			);
 			path = Model;
@@ -182,16 +206,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				541BF22B283BE2E6004C2162 /* CustomTextField.swift in Sources */,
 				541BF20028352F6C004C2162 /* SearchViewController.swift in Sources */,
 				541BF225283B9ADA004C2162 /* UserViewModel.swift in Sources */,
+				541BF235283BE6C2004C2162 /* Skill.swift in Sources */,
+				541BF231283BE68F004C2162 /* CursusBasic.swift in Sources */,
+				541BF22F283BE67F004C2162 /* Cursus.swift in Sources */,
+				541BF237283BE6D3004C2162 /* Project.swift in Sources */,
+				541BF233283BE6AC004C2162 /* ProjectInfo.swift in Sources */,
 				541BF2212837075D004C2162 /* UserProjectsTable.swift in Sources */,
 				541BF21728353137004C2162 /* User.swift in Sources */,
 				541BF1FC28352F6C004C2162 /* AppDelegate.swift in Sources */,
+				541BF22D283BE30D004C2162 /* ToolbarPickerView.swift in Sources */,
 				541BF21D28368256004C2162 /* Credentials.swift in Sources */,
 				541BF20628352F6C004C2162 /* SwiftyCompanion.xcdatamodeld in Sources */,
 				541BF2132835311D004C2162 /* UserViewController.swift in Sources */,
 				541BF1FE28352F6C004C2162 /* SceneDelegate.swift in Sources */,
-				541BF22328381CB8004C2162 /* UserInfoView.swift in Sources */,
+				541BF229283BE279004C2162 /* ProjectCellView.swift in Sources */,
+				541BF227283BDAF9004C2162 /* TopCellView.swift in Sources */,
 				541BF21528353126004C2162 /* SearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
