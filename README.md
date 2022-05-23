@@ -9,4 +9,4 @@ Features:
 - Progress bar
 - Auto layout
 
-![alt text](https://github.com/megagosha/swifty-companion/example.gif)
+![alt text](https://github.com/megagosha/swifty-companion/raw/main/example.gif)
