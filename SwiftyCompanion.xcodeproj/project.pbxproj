@@ -9,23 +9,35 @@
 /* Begin PBXBuildFile section */
 		541BF1FC28352F6C004C2162 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF1FB28352F6C004C2162 /* AppDelegate.swift */; };
 		541BF1FE28352F6C004C2162 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF1FD28352F6C004C2162 /* SceneDelegate.swift */; };
-		541BF20028352F6C004C2162 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF1FF28352F6C004C2162 /* ViewController.swift */; };
-		541BF20328352F6C004C2162 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541BF20128352F6C004C2162 /* Main.storyboard */; };
+		541BF20028352F6C004C2162 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF1FF28352F6C004C2162 /* SearchViewController.swift */; };
 		541BF20628352F6C004C2162 /* SwiftyCompanion.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 541BF20428352F6C004C2162 /* SwiftyCompanion.xcdatamodeld */; };
 		541BF20828352F6D004C2162 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 541BF20728352F6D004C2162 /* Assets.xcassets */; };
 		541BF20B28352F6D004C2162 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 541BF20928352F6D004C2162 /* LaunchScreen.storyboard */; };
+		541BF2132835311D004C2162 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF2122835311D004C2162 /* UserViewController.swift */; };
+		541BF21528353126004C2162 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF21428353126004C2162 /* SearchViewModel.swift */; };
+		541BF21728353137004C2162 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF21628353137004C2162 /* User.swift */; };
+		541BF21D28368256004C2162 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF21C28368256004C2162 /* Credentials.swift */; };
+		541BF2212837075D004C2162 /* UserProjectsTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF2202837075D004C2162 /* UserProjectsTable.swift */; };
+		541BF22328381CB8004C2162 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF22228381CB8004C2162 /* UserInfoView.swift */; };
+		541BF225283B9ADA004C2162 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 541BF224283B9ADA004C2162 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		541BF1F828352F6C004C2162 /* SwiftyCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftyCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		541BF1FB28352F6C004C2162 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		541BF1FD28352F6C004C2162 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		541BF1FF28352F6C004C2162 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		541BF20228352F6C004C2162 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		541BF1FF28352F6C004C2162 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		541BF20528352F6C004C2162 /* SwiftyCompanion.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SwiftyCompanion.xcdatamodel; sourceTree = "<group>"; };
 		541BF20728352F6D004C2162 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		541BF20A28352F6D004C2162 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		541BF20C28352F6D004C2162 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		541BF2122835311D004C2162 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		541BF21428353126004C2162 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		541BF21628353137004C2162 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		541BF21C28368256004C2162 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		541BF2202837075D004C2162 /* UserProjectsTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProjectsTable.swift; sourceTree = "<group>"; };
+		541BF22228381CB8004C2162 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		541BF224283B9ADA004C2162 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +70,46 @@
 		541BF1FA28352F6C004C2162 /* SwiftyCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				541BF21A28353149004C2162 /* Model */,
+				541BF21928353142004C2162 /* ViewModel */,
+				541BF2182835313B004C2162 /* View */,
+				541BF20728352F6D004C2162 /* Assets.xcassets */,
 				541BF1FB28352F6C004C2162 /* AppDelegate.swift */,
 				541BF1FD28352F6C004C2162 /* SceneDelegate.swift */,
-				541BF1FF28352F6C004C2162 /* ViewController.swift */,
-				541BF20128352F6C004C2162 /* Main.storyboard */,
-				541BF20728352F6D004C2162 /* Assets.xcassets */,
 				541BF20928352F6D004C2162 /* LaunchScreen.storyboard */,
 				541BF20C28352F6D004C2162 /* Info.plist */,
 				541BF20428352F6C004C2162 /* SwiftyCompanion.xcdatamodeld */,
 			);
 			path = SwiftyCompanion;
+			sourceTree = "<group>";
+		};
+		541BF2182835313B004C2162 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				541BF1FF28352F6C004C2162 /* SearchViewController.swift */,
+				541BF2122835311D004C2162 /* UserViewController.swift */,
+				541BF2202837075D004C2162 /* UserProjectsTable.swift */,
+				541BF22228381CB8004C2162 /* UserInfoView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		541BF21928353142004C2162 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				541BF21428353126004C2162 /* SearchViewModel.swift */,
+				541BF224283B9ADA004C2162 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		541BF21A28353149004C2162 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				541BF21628353137004C2162 /* User.swift */,
+				541BF21C28368256004C2162 /* Credentials.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +172,6 @@
 			files = (
 				541BF20B28352F6D004C2162 /* LaunchScreen.storyboard in Resources */,
 				541BF20828352F6D004C2162 /* Assets.xcassets in Resources */,
-				541BF20328352F6C004C2162 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,24 +182,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				541BF20028352F6C004C2162 /* ViewController.swift in Sources */,
+				541BF20028352F6C004C2162 /* SearchViewController.swift in Sources */,
+				541BF225283B9ADA004C2162 /* UserViewModel.swift in Sources */,
+				541BF2212837075D004C2162 /* UserProjectsTable.swift in Sources */,
+				541BF21728353137004C2162 /* User.swift in Sources */,
 				541BF1FC28352F6C004C2162 /* AppDelegate.swift in Sources */,
+				541BF21D28368256004C2162 /* Credentials.swift in Sources */,
 				541BF20628352F6C004C2162 /* SwiftyCompanion.xcdatamodeld in Sources */,
+				541BF2132835311D004C2162 /* UserViewController.swift in Sources */,
 				541BF1FE28352F6C004C2162 /* SceneDelegate.swift in Sources */,
+				541BF22328381CB8004C2162 /* UserInfoView.swift in Sources */,
+				541BF21528353126004C2162 /* SearchViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		541BF20128352F6C004C2162 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				541BF20228352F6C004C2162 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		541BF20928352F6D004C2162 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -296,7 +336,6 @@
 				INFOPLIST_FILE = SwiftyCompanion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -324,7 +363,6 @@
 				INFOPLIST_FILE = SwiftyCompanion/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
