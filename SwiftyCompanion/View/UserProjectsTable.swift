@@ -24,9 +24,9 @@ class UserProjectsTable:  UITableView, UITableViewDataSource, UITableViewDelegat
             return uVM.user.cursus_users[uVM.cursus_ix].skills.count
         case 2:
             return self.uVM.data[uVM.cursus_ix]!.count
-        default: 0
+        default:
+            return 0
         }
-        return 0
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -328,6 +328,9 @@ class TopCell: UITableViewCell,  UIPickerViewDelegate, UIPickerViewDataSource, U
         self.model = model
         self.parentTable = table
         self.pickerData = model.user.cursus_users.map { $0.cursus.name }
+        self.pickerData.removeAll(where: {$0 == model.user.cursus_users[model.cursus_ix].cursus.name})
+        self.pickerData.insert(model.user.cursus_users[model.cursus_ix].cursus.name, at: 0)
+        print(self.pickerData)
         self.userProfilePicture = model.img!
         super.init(style: .default, reuseIdentifier: "TopCell")
         
@@ -410,7 +413,9 @@ class TopCell: UITableViewCell,  UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     func didTapDone() {
-        self.model.cursus_ix = self.picker.selectedRow(inComponent: 0)
+//        self.model.cursus_ix = self.picker.selectedRow(inComponent: 0)
+        self.model.cursus_ix = self.model.key_cursus[self.pickerData[self.picker.selectedRow(inComponent: 0)]]!
+        
         self.pickerTextField.text = self.model.user.cursus_users[self.model.cursus_ix].cursus.name
         self.pickerTextField.resignFirstResponder()
         self.parentTable.reloadSections(IndexSet(integersIn: 1...2), with: .automatic)

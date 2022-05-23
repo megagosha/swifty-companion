@@ -13,6 +13,7 @@ class UserViewModel {
     public var user: User
     public var data: [Int:[ProjectInfo]] = [:]
     public var cursus_ix: Int
+    public var key_cursus: [String: Int] = [:]
     public var img: UIImageView?
     
     init(user: User){
@@ -23,7 +24,7 @@ class UserViewModel {
     }
     
     public func loadImg(finished: () -> ()) {
-        var img =  UIImageView()
+        let img =  UIImageView()
         img.translatesAutoresizingMaskIntoConstraints = false
         img.clipsToBounds = true
         img.layer.cornerRadius = 150 / 2
@@ -62,6 +63,7 @@ class UserViewModel {
                     }
                 }
             }
+            self.key_cursus[cursus.cursus.name] = key
             data[key] = data[key]?.sorted(by: {$0.project.name < $1.project.name})
         }
         return

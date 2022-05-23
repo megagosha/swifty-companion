@@ -61,24 +61,10 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         searchView.addSubview(searchButton)
         searchView.addSubview(searchField)
-        //        view.addSubview(titleLabel)
-        // Do any additional setup after loading the view.
         view.backgroundColor = .white
         view.addSubview(searchView)
-        
-//        let picker = UIPickerView()
-//        let textField = UITextField(frame: CGRect(x: 100, y: 450, width: <#T##Int#>))
-//        textField.inputView = picker
-//        textField.widthAnchor.constraint(equalToConstant: 100)
-//        textField.backgroundColor = .red
-//        picker.dataSource = self
-//        picker.delegate = self
-//        view.addSubview(picker)
-//        view.addSubview(textField)
-        
         self.view.backgroundColor = UIColor.white
         self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true
