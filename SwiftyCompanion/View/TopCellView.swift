@@ -31,8 +31,8 @@ class TopCell: UITableViewCell {
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.isUserInteractionEnabled = true
         textField.textAlignment = .center
-        textField.tintColor = .clear
-        textField.backgroundColor = .clear
+//        textField.tintColor = .clear
+//        textField.backgroundColor = .clear
         textField.autocorrectionType = .no
         textField.allowsEditingTextAttributes = false
         return textField
@@ -42,13 +42,14 @@ class TopCell: UITableViewCell {
         let level = UIProgressView(progressViewStyle: .bar)
         level.translatesAutoresizingMaskIntoConstraints = false
         level.progressTintColor =  UIColor(cgColor: CGColor(red: 93/255.0, green: 184/255.0, blue: 91/255.0, alpha: 1.0))
+        level.layer.cornerRadius = 10
         return level
     }()
     
     private var levelLabel: UILabel  = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
+//        label.textColor = .black
         label.textAlignment = .center
         label.font = UIFont.boldSystemFont(ofSize: 23.0)
         return label
@@ -56,7 +57,7 @@ class TopCell: UITableViewCell {
     
     private var fullName: UILabel = {
         let name = UILabel()
-        name.textColor = .black
+//        name.textColor = .black
         name.translatesAutoresizingMaskIntoConstraints = false
         name.font = UIFont.boldSystemFont(ofSize: 20.0)
         return name
@@ -64,21 +65,21 @@ class TopCell: UITableViewCell {
     
     private var nickname: UILabel = {
         let name = UILabel()
-        name.textColor = .black
+//        name.textColor = .black
         name.translatesAutoresizingMaskIntoConstraints = false
         return name
     }()
     
     private var wallet: UILabel = {
         let wallet = UILabel()
-        wallet.textColor = .black
+//        wallet.textColor = .black
         wallet.translatesAutoresizingMaskIntoConstraints = false
         return wallet
     }()
     
     private let userInfoView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+//        view.backgroundColor = .white
         return view
     }()
     
@@ -90,7 +91,7 @@ class TopCell: UITableViewCell {
         pickerData = model.user.cursus_users.map { $0.cursus.name }
         super.init(style: .default, reuseIdentifier: "TopCell")
         clipsToBounds = true
-        backgroundColor = .white
+//        backgroundColor = .white
         setUpSubViews()
     }
     
@@ -190,7 +191,13 @@ extension TopCell: UIPickerViewDelegate, UIPickerViewDataSource, ToolbarPickerVi
         self.model.cursus_ix = self.model.key_cursus[self.pickerData[self.picker.selectedRow(inComponent: 0)]]!
         self.pickerTextField.text = self.model.user.cursus_users[self.model.cursus_ix].cursus.name
         self.pickerTextField.resignFirstResponder()
+//        self.parentTable.beginUpdates()
+//        self.parentTable.reloadData()
+//        self.parentTable.endUpdates()
         self.parentTable.reloadSections(IndexSet(integersIn: 1...2), with: .automatic)
+        self.setLevelInfo()
+//        self.parentTable.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        self.level.setNeedsDisplay()
     }
     
     func didTapCancel() {

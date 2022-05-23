@@ -14,7 +14,7 @@ class ProjectCell: UITableViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .natural
-        label.textColor = .black
+//        label.textColor = .black
         return label
     }()
     
@@ -22,9 +22,9 @@ class ProjectCell: UITableViewCell {
         let label = UILabel()
         label.layer.masksToBounds = true
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.layer.cornerRadius = 20
+        label.layer.cornerRadius = 15
         label.textAlignment = .center
-        label.font = UIFont.boldSystemFont(ofSize: 10.0)
+        label.font = UIFont.boldSystemFont(ofSize: 13.0)
         return label
     }()
     
@@ -56,7 +56,7 @@ class ProjectCell: UITableViewCell {
         constaints.append(self.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor))
         constaints.append(projectStatus.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10))
         constaints.append(projectStatus.centerYAnchor.constraint(equalTo: self.centerYAnchor))
-        constaints.append(projectStatus.widthAnchor.constraint(equalToConstant: 100))
+        constaints.append(projectStatus.widthAnchor.constraint(equalToConstant: 80))
         constaints.append(projectStatus.heightAnchor.constraint(equalToConstant: 30))
         
         constaints.append(name.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))

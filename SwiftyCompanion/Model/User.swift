@@ -22,6 +22,6 @@ struct User: Codable, Identifiable {
     let pool_month: String?
     let pool_year: String?
     let wallet: Int?
-    let cursus_users: [Cursus]
+    var cursus_users: [Cursus]
     let projects_users: [ProjectInfo]
 }

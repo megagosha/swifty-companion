@@ -10,6 +10,7 @@ import UIKit
 
 
 class UserViewController: UIViewController {
+    
     var userModel: UserViewModel
     
     var projects: UserProjectsTable?
@@ -26,13 +27,14 @@ class UserViewController: UIViewController {
         var constaints : [NSLayoutConstraint] = []
         constaints.append(projects!.topAnchor.constraint(equalTo: self.view.topAnchor))
         constaints.append(projects!.bottomAnchor.constraint(equalTo: view.bottomAnchor))
-        constaints.append(projects!.trailingAnchor.constraint(equalTo: self.view.trailingAnchor ))
-        constaints.append(projects!.leadingAnchor.constraint(equalTo: self.view.leadingAnchor))
+        constaints.append(projects!.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor ))
+        constaints.append(projects!.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor))
         NSLayoutConstraint.activate(constaints)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.systemBackground
         self.projects =  UserProjectsTable(model: self.userModel)
         self.view.addSubview(self.projects!)
         self.title = "User info"

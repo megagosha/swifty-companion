@@ -11,8 +11,11 @@ import AuthenticationServices
 class SearchViewModel {
     
     let defaults = UserDefaults.standard
+    
     var ready: Bool = false
+    
     var user: User?
+    
     var token: String?
     
     init() {

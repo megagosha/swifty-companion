@@ -11,7 +11,7 @@ struct Cursus: Codable {
     let cursus_id: Int
     let grade: String?
     let level: Float
-    let skills: [Skill]
+    var skills: [Skill]
     let begin_at: String
     let cursus: CursusBasic
 }

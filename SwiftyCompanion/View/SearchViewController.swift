@@ -21,11 +21,13 @@ class SearchViewController: UIViewController  {
     private let searchField: UISearchTextField = {
         let myTextField: UISearchTextField = UISearchTextField();
         myTextField.frame.size = CGSize(width: UIScreen.main.bounds.width - 50, height: 50.0)
-        myTextField.placeholder = "42 username"
+        myTextField.placeholder = "edebi"
         myTextField.text = ""
         myTextField.borderStyle = .roundedRect
         myTextField.font = UIFont.systemFont(ofSize: 20)
-        myTextField.setBottomBorderOnlyWith(color: UIColor.gray.cgColor)
+//        myTextField.textColor = .none
+        myTextField.backgroundColor = .none
+        myTextField.setBottomBorderOnlyWith(color: UIColor.clear.cgColor)
         return myTextField
     }()
     
@@ -33,10 +35,11 @@ class SearchViewController: UIViewController  {
     private let searchButton: UIButton = {
         let button = UIButton(type: .system)
         button.frame.size = CGSize(width: 300, height: 50)
-        button.backgroundColor = .white
+//        button.backgroundColor = .none
         button.setTitle("Search", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 24)
-        button.tintColor = .black
+//        button.titleLabel?.textColor = .none
+        button.tintColor = .none
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(searchActionButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,8 +50,8 @@ class SearchViewController: UIViewController  {
         super.viewDidLoad()
         self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.view.backgroundColor = UIColor.white
-        view.backgroundColor = .white
+        self.view.backgroundColor = UIColor.systemBackground
+//        view.backgroundColor = .none
         view.addSubview(searchView)
         searchView.addSubview(searchButton)
         searchView.addSubview(searchField)

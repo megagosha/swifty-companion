@@ -63,6 +63,7 @@ class UserViewModel {
             }
             self.key_cursus[cursus.cursus.name] = key
             data[key] = data[key]?.sorted(by: {$0.project.name < $1.project.name})
+            self.user.cursus_users[key].skills = self.user.cursus_users[key].skills.sorted(by: {$0.level > $1.level})
         }
         return
     }

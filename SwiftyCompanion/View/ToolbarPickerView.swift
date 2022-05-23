@@ -21,7 +21,7 @@ class ToolbarPickerView: UIPickerView {
         let toolBar = UIToolbar( frame: CGRect(x: 0, y: 0, width: 100, height: 100))
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
-        toolBar.tintColor = .black
+//        toolBar.tintColor = .black
         toolBar.sizeToFit()
         toolBar.translatesAutoresizingMaskIntoConstraints = false
         return toolBar

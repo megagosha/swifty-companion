@@ -24,10 +24,11 @@ class UserProjectsTable:  UITableView {
         self.isScrollEnabled = true
         self.showsVerticalScrollIndicator = false
         self.showsHorizontalScrollIndicator = false
-        self.backgroundColor = UIColor.white
+//        self.backgroundColor = UIColor.white
         self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = true
         self.bounces = true
+        self.separatorStyle = .none
     }
     
     required init?(coder: NSCoder) {
@@ -69,11 +70,12 @@ extension UserProjectsTable: UITableViewDataSource, UITableViewDelegate {
             return cell
         }
         if (indexPath.section == 1) {
-            let cell = self.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath)
-            cell.textLabel?.text = self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].name +  " " + String(self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].level)
-            cell.backgroundColor = .white
+            let cell = self.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! SkillCell
+            cell.configure(name: self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].name , lvl: self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].level)
+//            cell.textLabel?.text = self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].name +  " " + String(self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].level)
+//            cell.backgroundColor = .white
             cell.selectionStyle = .none
-            cell.textLabel?.textColor = .black
+//            cell.textLabel?.textColor = .black
             return cell
         }
         if (indexPath.section == 2) {
@@ -103,13 +105,13 @@ extension UserProjectsTable: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
         let label = UILabel(frame: CGRect(x: 20, y: 0, width: tableView.bounds.size.width, height: 30))
-        label.textColor = .systemGray
+//        label.textColor = .systemGray
         if (section == 1) {
             label.text = "Skills:"
-            headerView.backgroundColor = UIColor.white
+//            headerView.backgroundColor = UIColor.white
         } else if (section == 2) {
             label.text = "Projects:"
-            headerView.backgroundColor = UIColor.white
+//            headerView.backgroundColor = UIColor.white
         }
         headerView.addSubview(label)
         
@@ -118,7 +120,60 @@ extension UserProjectsTable: UITableViewDataSource, UITableViewDelegate {
 }
 
 class SkillCell: UITableViewCell {
+    private var name: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .natural
+//        label.textColor = .black
+        return label
+    }()
     
+    private var lvl: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .right
+//        label.textColor = .black
+        return label
+    }()
+    
+    func configure(name: String, lvl: Float) {
+        let rounded = String(format: "%.2f", lvl)
+        self.lvl.text = rounded
+        self.name.text = name
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.name.text = nil
+        self.lvl.text = nil
+    }
+    
+    override func layoutSubviews() {
+        var constaints : [NSLayoutConstraint] = []
+        constaints.append(self.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor))
+        constaints.append(lvl.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30))
+        constaints.append(lvl.centerYAnchor.constraint(equalTo: self.centerYAnchor))
+        constaints.append(lvl.widthAnchor.constraint(equalToConstant: 40))
+        constaints.append(lvl.heightAnchor.constraint(equalToConstant: 30))
+        
+        constaints.append(name.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20))
+        constaints.append(name.centerYAnchor.constraint(equalTo: self.centerYAnchor))
+        constaints.append(name.widthAnchor.constraint(equalToConstant: 200))
+
+        //                constaints.append(name.heightAnchor.constraint(equalToConstant: 30))
+        NSLayoutConstraint.activate(constaints)
+    }
+    
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.addSubview(name)
+        self.addSubview(lvl)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
 func parseTime(time: String?)-> Date? {
