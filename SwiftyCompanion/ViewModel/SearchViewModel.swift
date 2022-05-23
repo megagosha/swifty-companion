@@ -18,19 +18,29 @@ class SearchViewModel {
     
     var token: String?
     
+    var expires_at: UInt?
+    
     init() {
         let token = defaults.string(forKey:"token")
         let expires_at = defaults.integer(forKey: "expires_at")
-        if (token == nil || expires_at < Date.currentTimestamp()) {
+        if (token == nil || !tokenIsValid(expires_at: UInt(expires_at))) {
             self.updateCredentials()
         }
         else
         {
             self.token = token
+            self.expires_at = UInt(expires_at)
         }
     }
     
-    func updateCredentials() {
+    func tokenIsValid(expires_at: UInt?)->Bool {
+        return self.token != nil && expires_at != nil && expires_at! > Date.currentTimestamp()
+    }
+    
+    func updateCredentials(force: Bool = false) {
+        guard (!tokenIsValid(expires_at: self.expires_at) && !force) else {
+            return
+        }
         self.getCredentials(completion: { cred in
             if (cred == nil)
             {
@@ -41,8 +51,10 @@ class SearchViewModel {
             self.defaults.set(expires_at, forKey: "expires_at")
             self.defaults.set(cred?.access_token, forKey: "token")
             self.token = cred?.access_token
+            self.expires_at = expires_at
         })
     }
+    
     
     func getCredentials(completion:@escaping (Credentials?) -> ()) {
         let uid = "8dd4286cd4b791302978ec923d8fb4a1b5c236bf617a32310498042221581752"
@@ -55,8 +67,8 @@ class SearchViewModel {
         
         URLSession.shared.dataTask(with: req) { data, response, error in
             do {
-//                let outputStr  = String(data: data!, encoding: String.Encoding.utf8) as String?
-//                _                     print(outputStr!)
+                //                let outputStr  = String(data: data!, encoding: String.Encoding.utf8) as String?
+                //                _                     print(outputStr!)
                 if error != nil {
                     self.handleError(error: NSError())
                     completion(nil)
@@ -87,8 +99,9 @@ class SearchViewModel {
     }
     
     func getUser(userInput: String, completion: @escaping (User?) -> ()) {
-       var user = userInput.trimingTrailingSpaces()
+        var user = userInput.trimingTrailingSpaces()
         user = user.lowercased()
+        updateCredentials()
         guard (self.token != nil && !user.isEmpty) else {
             completion(nil)
             return
@@ -103,7 +116,7 @@ class SearchViewModel {
         req.setValue("Bearer " + self.token!, forHTTPHeaderField: "Authorization")
         URLSession.shared.dataTask(with: req) { data, response, error in
             do {
-//                let outputStr  = String(data: data!, encoding: String.Encoding.utf8) as String?
+                //                let outputStr  = String(data: data!, encoding: String.Encoding.utf8) as String?
                 if let error = error {
                     self.handleError(error: NSError(domain: error.localizedDescription, code: 500))
                     completion(nil)
@@ -155,11 +168,11 @@ extension Date {
     }
 }
 extension String {
-   func trimingTrailingSpaces(using characterSet: CharacterSet = .whitespacesAndNewlines) -> String {
+    func trimingTrailingSpaces(using characterSet: CharacterSet = .whitespacesAndNewlines) -> String {
         guard let index = lastIndex(where: { !CharacterSet(charactersIn: String($0)).isSubset(of: characterSet) }) else {
             return self
         }
-
+        
         return String(self[...index])
     }
 }
