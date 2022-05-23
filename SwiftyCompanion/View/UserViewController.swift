@@ -110,6 +110,11 @@ extension UIImageView {
                         self?.image = image
                     }
                 }
+                print("failed to create UIIMage")
+            }
+            else
+            {
+                print("img download failed")
             }
         }
     }

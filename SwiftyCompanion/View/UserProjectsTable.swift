@@ -17,7 +17,6 @@ class UserProjectsTable:  UITableView, UITableViewDataSource, UITableViewDelegat
     //    private var selectedCursus: Int = 0
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("")
         switch section {
         case 0:
             return 1
@@ -87,8 +86,6 @@ class UserProjectsTable:  UITableView, UITableViewDataSource, UITableViewDelegat
     
     init(model: UserViewModel) {
         self.uVM = model
-        print("table init")
-        print(self.uVM.data[self.uVM.cursus_ix]!.count)
         super.init(frame: CGRect(), style: .plain)
         
         let ix = getActiveCourseIx()
@@ -111,7 +108,6 @@ class UserProjectsTable:  UITableView, UITableViewDataSource, UITableViewDelegat
         self.translatesAutoresizingMaskIntoConstraints = false
         self.clipsToBounds = true
         self.bounces = true
-        print("table ready")
         
         
         //        self.addSubview(picker)
@@ -385,20 +381,13 @@ class TopCell: UITableViewCell,  UIPickerViewDelegate, UIPickerViewDataSource, U
     }
     
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
-//        print("can perform action")
-//        print(action)
-//        if action == #selector(UIResponderStandardEditActions.paste(_:)) {
-//            return false
-//        }
-//        print("super called")
-//        return super.canPerformAction(action, withSender: sender)
         return false
     }
-    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool {
-        print("should change")
-       return false
-    }
-    
+//    func textField(textField: UITextField!, shouldChangeCharactersInRange range: NSRange, replacementString string: String!) -> Bool {
+//        print("should change")
+//       return false
+//    }
+//
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -426,7 +415,6 @@ class TopCell: UITableViewCell,  UIPickerViewDelegate, UIPickerViewDataSource, U
         self.pickerTextField.resignFirstResponder()
         self.parentTable.reloadSections(IndexSet(integersIn: 1...2), with: .automatic)
 //        self.parentTable.reloadData()
-        print("Tapped")
     }
     
     func didTapCancel() {

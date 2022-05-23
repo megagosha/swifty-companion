@@ -20,15 +20,14 @@ class UserViewModel {
         self.cursus_ix = 0
         self.prepareData()
         self.findLatestCursus()
-        print(cursus_ix)
-        print(data)
     }
     
     public func loadImg(finished: () -> ()) {
         var img =  UIImageView()
-        
         img.translatesAutoresizingMaskIntoConstraints = false
-        let url = URL(string: self.user.url ?? "https://profile.intra.42.fr/images/default.png")
+        img.clipsToBounds = true
+        img.layer.cornerRadius = 150 / 2
+        let url = URL(string: self.user.image_url ?? "https://profile.intra.42.fr/images/default.png")
         if url == nil {
             self.img = img
             return
@@ -63,6 +62,7 @@ class UserViewModel {
                     }
                 }
             }
+            data[key] = data[key]?.sorted(by: {$0.project.name < $1.project.name})
         }
         return
     }

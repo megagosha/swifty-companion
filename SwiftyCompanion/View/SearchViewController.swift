@@ -106,13 +106,10 @@ class SearchViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             else
             {
                 let userViewModel = UserViewModel(user: user!)
-//                userViewModel.prepareData()
-                print(userViewModel.data[userViewModel.cursus_ix]!.count)
                 userViewModel.loadImg(finished: {
                     let vc = UserViewController(user: userViewModel)
                     self.navigationController?.pushViewController(vc, animated: true)
                 })
-                print("show user info")
             }
         }
     }

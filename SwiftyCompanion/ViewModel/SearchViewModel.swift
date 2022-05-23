@@ -19,9 +19,6 @@ class SearchViewModel {
     init() {
         let token = defaults.string(forKey:"token")
         let expires_at = defaults.integer(forKey: "expires_at")
-        print("expires at ")
-        print(expires_at)
-        print(Date.currentTimestamp())
         if (token == nil || expires_at < Date.currentTimestamp()) {
             self.updateCredentials()
         }
@@ -63,7 +60,6 @@ class SearchViewModel {
     //        session.presentationContextProvider = self
     //        session.start()
     func getCredentials(completion:@escaping (Credentials?) -> ()) {
-        print("btn pressed")
         // Use the URL and callback scheme specified by the authorization provider.
         let uid = "8dd4286cd4b791302978ec923d8fb4a1b5c236bf617a32310498042221581752"
         let secret = "4785a92792ce3254b85a9c0cc4026648c141742229b4efa350e9a4fee916d21e"
@@ -73,7 +69,6 @@ class SearchViewModel {
         var req = URLRequest(url: authURL)
         req.httpMethod = "POST"
         
-        print(authURL)
         URLSession.shared.dataTask(with: req) { data, response, error in
             do {
 //                let outputStr  = String(data: data!, encoding: String.Encoding.utf8) as String?
@@ -97,7 +92,6 @@ class SearchViewModel {
                 }
                 let cred =  try JSONDecoder().decode(Credentials.self, from: data!)
                 DispatchQueue.main.async {
-                    print(cred)
                     completion(cred)
                 }
             }
@@ -150,7 +144,6 @@ class SearchViewModel {
                     completion(nil)
                     return
                 }
-                print("herer")
                 let user =  try JSONDecoder().decode(User.self, from: data!)
                 DispatchQueue.main.async {
                     
