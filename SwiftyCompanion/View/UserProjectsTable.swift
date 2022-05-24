@@ -55,15 +55,16 @@ extension UserProjectsTable: UITableViewDataSource, UITableViewDelegate {
         case 0:
             return 1
         case 1:
-            return uVM.user.cursus_users[uVM.cursus_ix].skills.count
+            return uVM.getSkillsCount()
         case 2:
-            return self.uVM.data[uVM.cursus_ix]!.count
+            return uVM.getProjectsCount()
         default:
             return 0
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if (indexPath.row == 0 && indexPath.section == 0) {
             let cell  = self.dequeueReusableCell(withIdentifier: "TopCell", for: indexPath) as! TopCell
             //            cell.pickerTextField.becomeFirstResponder()
@@ -71,24 +72,15 @@ extension UserProjectsTable: UITableViewDataSource, UITableViewDelegate {
         }
         if (indexPath.section == 1) {
             let cell = self.dequeueReusableCell(withIdentifier: "SkillCell", for: indexPath) as! SkillCell
-            cell.configure(name: self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].name , lvl: self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].level)
-//            cell.textLabel?.text = self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].name +  " " + String(self.uVM.user.cursus_users[uVM.cursus_ix].skills[indexPath.row].level)
-//            cell.backgroundColor = .white
+            let (name, lvl) = uVM.getSkillRow(ix: indexPath.row)
+            cell.configure(name: name, lvl: lvl)
             cell.selectionStyle = .none
-//            cell.textLabel?.textColor = .black
             return cell
         }
         if (indexPath.section == 2) {
             let cell = self.dequeueReusableCell(withIdentifier: "ProjectCell", for: indexPath) as! ProjectCell
-            var status: Bool = false
-            if (self.uVM.data[uVM.cursus_ix]![indexPath.row].validated != nil &&
-                self.uVM.data[uVM.cursus_ix]![indexPath.row].validated!)
-            {
-                status = true
-            }
-            cell.configure(name: self.uVM.data[uVM.cursus_ix]![indexPath.row].project.name,
-                           result: self.uVM.data[uVM.cursus_ix]![indexPath.row].final_mark,
-                           complete: status)
+            let (name, result, status) = uVM.getProjectCellData(ix: indexPath.row)
+            cell.configure(name: name, result: result, complete: status)
             return cell
         }
         return UITableViewCell()
@@ -136,9 +128,8 @@ class SkillCell: UITableViewCell {
         return label
     }()
     
-    func configure(name: String, lvl: Float) {
-        let rounded = String(format: "%.2f", lvl)
-        self.lvl.text = rounded
+    func configure(name: String, lvl: String) {
+        self.lvl.text = lvl
         self.name.text = name
     }
     

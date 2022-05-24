@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import CloudKit
 
 
 class UserViewModel {
@@ -66,6 +67,33 @@ class UserViewModel {
             self.user.cursus_users[key].skills = self.user.cursus_users[key].skills.sorted(by: {$0.level > $1.level})
         }
         return
+    }
+    
+    public func getSkillRow(ix: Int)->(name: String, lvl: String) {
+        let lvl = user.cursus_users[cursus_ix].skills[ix].level
+        let rounded = String(format: "%.2f", lvl)
+        
+        return (user.cursus_users[cursus_ix].skills[ix].name ,
+                lvl: rounded)
+    }
+    
+    public func getProjectStatus(ix: Int)->Bool {
+        return (data[cursus_ix]![ix].validated != nil &&
+                data[cursus_ix]![ix].validated!)
+    }
+    
+    public func getSkillsCount()->Int {
+        return user.cursus_users[cursus_ix].skills.count
+    }
+    
+    public func getProjectsCount()->Int {
+        return data[cursus_ix]!.count
+    }
+    
+    
+    public func getProjectCellData(ix: Int)->(name: String, result: Int?, complete: Bool) {
+        return (name: data[cursus_ix]![ix].project.name,
+                result: data[cursus_ix]![ix].final_mark, complete: getProjectStatus(ix: ix))
     }
     
     init(user: User){
