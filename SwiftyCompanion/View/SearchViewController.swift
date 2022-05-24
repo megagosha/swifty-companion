@@ -8,12 +8,12 @@
 import UIKit
 import AuthenticationServices
 class SearchViewController: UIViewController  {
-
+    
     let searchModel = SearchViewModel()
     
     private let searchView: UIView = {
         let view = UIView()
-//        view.backgroundColor = .white
+        //        view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -25,7 +25,7 @@ class SearchViewController: UIViewController  {
         myTextField.text = ""
         myTextField.borderStyle = .roundedRect
         myTextField.font = UIFont.systemFont(ofSize: 20)
-//        myTextField.textColor = .none
+        //        myTextField.textColor = .none
         myTextField.backgroundColor = .none
         myTextField.setBottomBorderOnlyWith(color: UIColor.clear.cgColor)
         return myTextField
@@ -35,10 +35,10 @@ class SearchViewController: UIViewController  {
     private let searchButton: UIButton = {
         let button = UIButton(type: .system)
         button.frame.size = CGSize(width: 300, height: 50)
-//        button.backgroundColor = .none
+        //        button.backgroundColor = .none
         button.setTitle("Search", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 24)
-//        button.titleLabel?.textColor = .none
+        //        button.titleLabel?.textColor = .none
         button.tintColor = .none
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(searchActionButton), for: .touchUpInside)
@@ -51,7 +51,9 @@ class SearchViewController: UIViewController  {
         self.navigationItem.title = "Search"
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.view.backgroundColor = UIColor.systemBackground
-//        view.backgroundColor = .none
+        searchField.delegate = self
+        searchField.returnKeyType = .search
+        //        view.backgroundColor = .none
         view.addSubview(searchView)
         searchView.addSubview(searchButton)
         searchView.addSubview(searchField)
@@ -116,5 +118,16 @@ extension UITextField {
         shake.fromValue = NSValue(cgPoint: CGPoint(x: self.center.x - 10, y: self.center.y))
         shake.toValue = NSValue(cgPoint: CGPoint(x: self.center.x + 10, y: self.center.y))
         self.layer.add(shake, forKey: "position")
+    }
+}
+
+extension SearchViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == searchField {
+            textField.resignFirstResponder()
+            self.searchActionButton()
+            return true
+        }
+        return false
     }
 }
