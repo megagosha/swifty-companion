@@ -92,10 +92,11 @@ class TopCell: UITableViewCell {
         super.init(style: .default, reuseIdentifier: "TopCell")
         clipsToBounds = true
 //        backgroundColor = .white
-        setUpSubViews()
+        setSubViews()
+        setConstraints()
     }
     
-    private func setUpSubViews() {
+    private func setSubViews() {
         setLevelInfo()
         setPicker()
         fullName.text = user.displayname
@@ -137,39 +138,39 @@ class TopCell: UITableViewCell {
     }
     
     
-    override func layoutSubviews() {
+    func setConstraints() {
         self.userInfoView.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height)
         self.userProfilePicture.frame = CGRect(x: self.frame.width / 2, y: 50, width: 150, height: 150)
-        var constaints : [NSLayoutConstraint] = []
-        constaints.append(userProfilePicture.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constaints.append(userProfilePicture.widthAnchor.constraint(equalToConstant: 150))
-        constaints.append(userProfilePicture.heightAnchor.constraint(equalToConstant: 150))
+        var constraints : [NSLayoutConstraint] = []
+        constraints.append(userProfilePicture.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        constraints.append(userProfilePicture.widthAnchor.constraint(equalToConstant: 150))
+        constraints.append(userProfilePicture.heightAnchor.constraint(equalToConstant: 150))
         
-        constaints.append(fullName.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constaints.append(fullName.topAnchor.constraint(equalTo: userProfilePicture.bottomAnchor, constant: 30))
+        constraints.append(fullName.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        constraints.append(fullName.topAnchor.constraint(equalTo: userProfilePicture.bottomAnchor, constant: 30))
         
-        constaints.append(nickname.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constaints.append(nickname.topAnchor.constraint(equalTo: fullName.bottomAnchor, constant: 10))
-        constaints.append(wallet.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constaints.append(wallet.topAnchor.constraint(equalTo: nickname.bottomAnchor, constant: 10))
+        constraints.append(nickname.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        constraints.append(nickname.topAnchor.constraint(equalTo: fullName.bottomAnchor, constant: 10))
+        constraints.append(wallet.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        constraints.append(wallet.topAnchor.constraint(equalTo: nickname.bottomAnchor, constant: 10))
         
-        constaints.append(level.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constaints.append(level.topAnchor.constraint(equalTo: wallet.bottomAnchor, constant: 20))
-        constaints.append(level.heightAnchor.constraint(equalToConstant: 50))
-        constaints.append(level.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(level.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        constraints.append(level.topAnchor.constraint(equalTo: wallet.bottomAnchor, constant: 20))
+        constraints.append(level.heightAnchor.constraint(equalToConstant: 50))
+        constraints.append(level.widthAnchor.constraint(equalToConstant: 300))
         
-        constaints.append(levelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constaints.append(levelLabel.topAnchor.constraint(equalTo: wallet.bottomAnchor, constant: 20))
-        constaints.append(levelLabel.heightAnchor.constraint(equalToConstant: 50))
-        constaints.append(levelLabel.widthAnchor.constraint(equalToConstant: 300))
+        constraints.append(levelLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        constraints.append(levelLabel.topAnchor.constraint(equalTo: wallet.bottomAnchor, constant: 20))
+        constraints.append(levelLabel.heightAnchor.constraint(equalToConstant: 50))
+        constraints.append(levelLabel.widthAnchor.constraint(equalToConstant: 300))
         
-        constaints.append(pickerTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor))
-        constaints.append(pickerTextField.topAnchor.constraint(equalTo: levelLabel.bottomAnchor, constant: 20))
-        constaints.append(pickerTextField.heightAnchor.constraint(equalToConstant: 60))
-        constaints.append(pickerTextField.widthAnchor.constraint(equalToConstant: 100))
+        constraints.append(pickerTextField.centerXAnchor.constraint(equalTo: self.centerXAnchor))
+        constraints.append(pickerTextField.topAnchor.constraint(equalTo: levelLabel.bottomAnchor, constant: 20))
+        constraints.append(pickerTextField.heightAnchor.constraint(equalToConstant: 60))
+        constraints.append(pickerTextField.widthAnchor.constraint(equalToConstant: 100))
         
         
-        NSLayoutConstraint.activate(constaints)
+        NSLayoutConstraint.activate(constraints)
     }
 }
 
