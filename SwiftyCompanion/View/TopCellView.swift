@@ -102,6 +102,7 @@ class TopCell: UITableViewCell {
         fullName.text = user.displayname
         nickname.text = user.login
         wallet.text = "Wallet: " + String(user.wallet ?? 0)
+        userProfilePicture.contentMode = .scaleAspectFill
         userInfoView.addSubview(level)
         userInfoView.addSubview(levelLabel)
         userInfoView.addSubview(fullName)
